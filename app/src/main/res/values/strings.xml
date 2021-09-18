@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">HelloWord</string>
+    <string name="title_activity_note_keeper">NoteKeeper</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_note_list_avtivity">NoteListAvtivity</string>
+
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
