@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager
 import android.widget.ArrayAdapter
 
 import kotlinx.android.synthetic.main.activity_note_list_activity.*
@@ -22,14 +23,16 @@ class NoteListActivity : AppCompatActivity() {
             // start that activity
             startActivity(activityIntent)
         }
-        listNotes.adapter = ArrayAdapter(this,
-            android.R.layout.simple_list_item_1, DataManager.notes)
-        // implements the adapterView.onitemclicklistner
-        listNotes.setOnItemClickListener{parent, view, position, id ->
-            val activityIntent = Intent(this, MainActivity::class.java)
-            activityIntent.putExtra(NOTE_POSITION, position)
-            startActivity(activityIntent)
-        }
+//        set layout manager for the recyler view
+        listItems.layoutManager = LinearLayoutManager(this)
+
+        // connect recycler view with notelist activity
+        listItems.adapter = NoteRecyclerAdapter(this, DataManager.notes)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        listItems.adapter?.notifyDataSetChanged()
     }
 
 }

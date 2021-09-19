@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
-        (listNotes.adapter as ArrayAdapter<NoteInfo>).notifyDataSetChanged()
+
     }
 
     //    save state as activity is about to move out of the fore ground
